@@ -1,0 +1,13 @@
+import pandas as pd
+import numpy as np
+df = pd.read_excel(r'C:\Users\tyler\Downloads\nba2k-full.xlsx')
+#print(df)
+
+dfc = df[['PLAYER', 'RATING', 'DRAFT', 'PICK', 'TEAM']]
+
+dfa = pd.DataFrame(dfc)
+
+grouped = dfa.groupby('DRAFT')
+
+#for name, group in grouped:
+print(grouped['RATING'].agg(np.mean).nlargest(n=10))
