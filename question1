@@ -1,0 +1,11 @@
+import pandas as pd
+df = pd.read_excel(r'C:\Users\tyler\Downloads\nba2k-full.xlsx')
+
+dfc = df[['PLAYER', 'RATING', 'DRAFT', 'PICK']]
+
+dfa = pd.DataFrame(dfc)
+
+grouped = dfa.groupby('DRAFT')
+
+#for name, group in grouped:
+print(grouped.get_group(2015))
